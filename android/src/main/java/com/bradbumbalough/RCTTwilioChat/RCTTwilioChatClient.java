@@ -87,7 +87,7 @@ public class RCTTwilioChatClient extends ReactContextBaseJavaModule implements C
         connectionState.put("Error", ChatClient.ConnectionState.FATAL_ERROR.toString());
         constants.put("TCHClientConnectionState", connectionState);
 
-        Map<String, String> logLevel = new HashMap<>();
+        Map<String, Integer> logLevel = new HashMap<>();
         logLevel.put("Assert", Log.ASSERT);
         logLevel.put("Debug", Log.DEBUG);
         logLevel.put("Error", Log.ERROR);
