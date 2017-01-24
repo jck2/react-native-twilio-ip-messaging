@@ -88,12 +88,11 @@ public class RCTTwilioChatClient extends ReactContextBaseJavaModule implements C
         constants.put("TCHClientConnectionState", connectionState);
 
         Map<String, Integer> logLevel = new HashMap<>();
-        logLevel.put("Assert", Log.ASSERT);
-        logLevel.put("Debug", Log.DEBUG);
-        logLevel.put("Error", Log.ERROR);
+        logLevel.put("Fatal", Log.ERROR);
+        logLevel.put("Critical", Log.ERROR);
+        logLevel.put("Warning", Log.WARN);
         logLevel.put("Info", Log.INFO);
-        logLevel.put("Verbose", Log.VERBOSE);
-        logLevel.put("Warn", Log.WARN);
+        logLevel.put("Debug", Log.DEBUG);
         constants.put("TCHLogLevel", logLevel);
 
         Map<String, String> userInfo = new HashMap<>();
@@ -240,8 +239,7 @@ public class RCTTwilioChatClient extends ReactContextBaseJavaModule implements C
 
     @ReactMethod
     public void setLogLevel(Integer logLevel) {
-        RCTTwilioChatClient tmp = RCTTwilioChatClient.getInstance();
-        tmp.client.setLogLevel(logLevel);
+        ChatClient.setLogLevel(logLevel);
     }
 
     // UserInfo methods
